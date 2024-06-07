@@ -11,11 +11,11 @@ services:
       - ./mysql/init/:/docker-entrypoint-initdb.d
     networks:
       mysql:
-        ipv4_address: 172.30.0.3
+        ipv4_address: 172.22.0.2
 
 networks:
   mysql:
     ipam:
       driver: default
       config:
-        - subnet: 172.30.0.0/30
+        - subnet: 172.22.0.0/30

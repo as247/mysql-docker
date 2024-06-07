@@ -9,5 +9,5 @@ Clone this repository and run the following command in the root directory of the
 sh ./prepare.sh
 docker compose up -d
 ```
-Mysql running on 172.30.0.3:3306
+Mysql running on 172.22.0.2:3306
 
