@@ -1,0 +1,21 @@
+services:
+  db:
+    image: ${MYSQL_IMAGE}
+    restart: always
+    env_file:
+      - ./mysql.env
+    volumes:
+      - ./mysql/data/:/var/lib/mysql
+      - ./mysql/log/:/var/log/mysql
+      - ./mysql/conf.d/:/etc/mysql/conf.d
+      - ./mysql/init/:/docker-entrypoint-initdb.d
+    networks:
+      mysql:
+        ipv4_address: 172.30.0.3
+
+networks:
+  mysql:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.30.0.0/30
