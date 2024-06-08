@@ -10,6 +10,10 @@ cd "$SCRIPT_DIR" || exit
 if [ -f .env ]; then
   source ./.env
 fi
+# Check if docker-compose.yml exists, if not copy from docker-compose-sample.yml
+if [ ! -f docker-compose.yml ]; then
+  cp docker-compose-sample.yml docker-compose.yml
+fi
 architecture=$(uname -m)
 passwordLength=18
 if [ "$architecture" == "x86_64" ]; then
